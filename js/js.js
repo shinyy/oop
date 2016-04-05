@@ -23,10 +23,10 @@ $(function(){
 				this.clickNum++;
 				if(this.clickNum<this.liNum()-1){
 					//this.box.animate({left:-this.liW()*this.clickNum},this.imgSpeed);
-					this.box.animate({x:-this.liW()*this.clickNum},this.imgSpeed);
+					this.box.transition({x:-this.liW()*this.clickNum},this.imgSpeed);
 				}else{
 					//不露馅的关键在于最后一个动画完成时瞬间变成第一个的位置与变量
-					this.box.animate({x:-this.liW()*this.clickNum},this.imgSpeed,function(){
+					this.box.transition({x:-this.liW()*this.clickNum},this.imgSpeed,function(){
 						that.box.css("x",0);
 					});
 					this.clickNum=0;
@@ -40,12 +40,12 @@ $(function(){
 				if(this.clickNum<0){
 					//不露馅的关键在于先调整成最后一个（克隆节点）的位置然后完成动画  再改变成倒数第二个节点的变量
 					//that.box.css("left",-this.liW()*(this.liNum()-1)).animate({"left":-this.liW()*(this.liNum()-2)});
-					that.box.css("x",-this.liW()*(this.liNum()-1)).animate({"x":-this.liW()*(this.liNum()-2)});
+					that.box.css("x",-this.liW()*(this.liNum()-1)).transition({"x":-this.liW()*(this.liNum()-2)});
 					this.clickNum=this.liNum()-2;
 					
 				}else{
 					//this.box.animate({left:-this.liW()*this.clickNum},this.imgSpeed);
-					this.box.animate({x:-this.liW()*this.clickNum},this.imgSpeed);
+					this.box.transition({x:-this.liW()*this.clickNum},this.imgSpeed);
 				}
 				
 			};
